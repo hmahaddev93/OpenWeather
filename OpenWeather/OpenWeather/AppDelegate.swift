@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         window = UIWindow()
-        window?.rootViewController = UINavigationController(rootViewController: ViewController())
+        window?.rootViewController = UINavigationController(rootViewController: WeatherSearchViewController(viewModel: WeatherSearchViewModel()))
         window?.makeKeyAndVisible()
         
         configureNavBarAppearance()

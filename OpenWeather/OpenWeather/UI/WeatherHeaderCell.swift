@@ -1,5 +1,5 @@
 //
-//  WeatherCell.swift
+//  WeatherHeaderCell.swift
 //  OpenWeather
 //
 //  Created by Khateeb H. on 3/30/22.
@@ -7,14 +7,20 @@
 
 import UIKit
 
-class WeatherCell: UITableViewCell {
+class WeatherHeaderCell: UITableViewCell {
 
-    var model: Weather? {
+    var model: CityWeatherResponse? {
         didSet {
-            if let iconId = model?.icon {
+            self.cityLabel.text = model?.name?.uppercased()
+            if let iconId = model?.weather?.first?.icon {
                 self.iconImageView.loadWeatherIcon(iconId: iconId)
             }
-            self.weatherLabel.text = model?.main
+            self.weatherLabel.text = model?.weather?.first?.main
+            if let temp = model?.temperature?.temp {
+                self.tempLabel.text = "\(temp)℉"
+            } else {
+                self.tempLabel.text = "N/A"
+            }
         }
     }
     
@@ -27,17 +33,32 @@ class WeatherCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private let cityLabel = MyLabel(size: 24, isBold: true, color: .darkGray)
+    private let weatherLabel = MyLabel(size: 16, isBold: true, color: .gray)
+    private let tempTitleLabel: MyLabel = {
+        let label = MyLabel(size: 14, color: .gray)
+        label.text = "Temperature:"
+        return label
+    }()
+    private let tempLabel = MyLabel(size: 32, isBold: true, color: .black)
+    
     private let iconImageView: UIImageView = {
         let imageView = UIImageView(frame: .zero)
         imageView.contentMode = .scaleAspectFit
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
-    private let weatherLabel = MyLabel(size: 16, isBold: true, color: .gray)
     
+    private lazy var tempStackView: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [UIView(), tempTitleLabel, tempLabel, UIView()])
+        stackView.spacing = 8.0
+        stackView.axis = .horizontal
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        return stackView
+    }()
     
     private lazy var stackView: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [iconImageView, weatherLabel])
+        let stackView = UIStackView(arrangedSubviews: [cityLabel, iconImageView, weatherLabel, tempStackView])
         stackView.spacing = 1.0
         stackView.axis = .vertical
         stackView.alignment = .center
@@ -50,6 +71,14 @@ class WeatherCell: UITableViewCell {
     private func commonInit() {
         backgroundColor = .clear
         self.addSubview(stackView)
+        
+        NSLayoutConstraint.activate([
+            cityLabel.heightAnchor.constraint(equalToConstant: 60),
+        ])
+        
+        NSLayoutConstraint.activate([
+            tempLabel.heightAnchor.constraint(equalToConstant: 80),
+        ])
         
         NSLayoutConstraint.activate([
             iconImageView.widthAnchor.constraint(equalToConstant: 100),

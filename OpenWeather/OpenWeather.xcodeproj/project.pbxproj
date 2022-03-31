@@ -7,8 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B52089327F5690100C01AD8 /* WeatherHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52089227F5690100C01AD8 /* WeatherHeaderCell.swift */; };
+		6B52089D27F5FC7D00C01AD8 /* MyLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52089627F5FC7D00C01AD8 /* MyLabel.swift */; };
+		6B52089F27F5FC7D00C01AD8 /* UIImageView+WeatherIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52089A27F5FC7D00C01AD8 /* UIImageView+WeatherIcon.swift */; };
+		6B5208A027F5FC7D00C01AD8 /* UIImage+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B52089B27F5FC7D00C01AD8 /* UIImage+Custom.swift */; };
+		6B5208A327F6322300C01AD8 /* UIColor+Custom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B5208A227F6322300C01AD8 /* UIColor+Custom.swift */; };
 		6BA3406C27F461EB00F67D66 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA3406B27F461EB00F67D66 /* AppDelegate.swift */; };
-		6BA3407027F461EB00F67D66 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA3406F27F461EB00F67D66 /* ViewController.swift */; };
 		6BA3407527F461ED00F67D66 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6BA3407427F461ED00F67D66 /* Assets.xcassets */; };
 		6BA3407827F461ED00F67D66 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6BA3407627F461ED00F67D66 /* LaunchScreen.storyboard */; };
 		6BA3408327F461ED00F67D66 /* OpenWeatherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BA3408227F461ED00F67D66 /* OpenWeatherTests.swift */; };
@@ -42,9 +46,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6B52089227F5690100C01AD8 /* WeatherHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherHeaderCell.swift; sourceTree = "<group>"; };
+		6B52089627F5FC7D00C01AD8 /* MyLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyLabel.swift; sourceTree = "<group>"; };
+		6B52089A27F5FC7D00C01AD8 /* UIImageView+WeatherIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+WeatherIcon.swift"; sourceTree = "<group>"; };
+		6B52089B27F5FC7D00C01AD8 /* UIImage+Custom.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Custom.swift"; sourceTree = "<group>"; };
+		6B5208A227F6322300C01AD8 /* UIColor+Custom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Custom.swift"; sourceTree = "<group>"; };
 		6BA3406827F461EB00F67D66 /* OpenWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = OpenWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6BA3406B27F461EB00F67D66 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		6BA3406F27F461EB00F67D66 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		6BA3407427F461ED00F67D66 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6BA3407727F461ED00F67D66 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6BA3407927F461ED00F67D66 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -88,6 +96,33 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		6B52089427F5FC7D00C01AD8 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				6B52089527F5FC7D00C01AD8 /* UI */,
+				6B52089927F5FC7D00C01AD8 /* Extensions */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		6B52089527F5FC7D00C01AD8 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6B52089627F5FC7D00C01AD8 /* MyLabel.swift */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		6B52089927F5FC7D00C01AD8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				6B52089A27F5FC7D00C01AD8 /* UIImageView+WeatherIcon.swift */,
+				6B52089B27F5FC7D00C01AD8 /* UIImage+Custom.swift */,
+				6B5208A227F6322300C01AD8 /* UIColor+Custom.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		6BA3405F27F461EB00F67D66 = {
 			isa = PBXGroup;
 			children = (
@@ -111,12 +146,12 @@
 		6BA3406A27F461EB00F67D66 /* OpenWeather */ = {
 			isa = PBXGroup;
 			children = (
+				6B52089427F5FC7D00C01AD8 /* Helper */,
 				6BA340E627F4CDCB00F67D66 /* Presenter */,
 				6BA3409B27F4641A00F67D66 /* Model */,
 				6BA3409C27F4642100F67D66 /* Service */,
 				6BA340A127F4A66E00F67D66 /* UI */,
 				6BA3406B27F461EB00F67D66 /* AppDelegate.swift */,
-				6BA3406F27F461EB00F67D66 /* ViewController.swift */,
 				6BA3407427F461ED00F67D66 /* Assets.xcassets */,
 				6BA3407627F461ED00F67D66 /* LaunchScreen.storyboard */,
 				6BA3407927F461ED00F67D66 /* Info.plist */,
@@ -160,6 +195,7 @@
 		6BA340A127F4A66E00F67D66 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				6B52089227F5690100C01AD8 /* WeatherHeaderCell.swift */,
 				6BA340A827F4A94800F67D66 /* WeatherCell.swift */,
 				6BA340A627F4A6F400F67D66 /* WeatherSearchView.swift */,
 				6BA340A227F4A6A500F67D66 /* WeatherSearchViewController.swift */,
@@ -307,12 +343,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6BA3407027F461EB00F67D66 /* ViewController.swift in Sources */,
+				6B5208A027F5FC7D00C01AD8 /* UIImage+Custom.swift in Sources */,
 				6BA340A527F4A6B600F67D66 /* WeatherSearchViewModel.swift in Sources */,
+				6B52089327F5690100C01AD8 /* WeatherHeaderCell.swift in Sources */,
+				6B52089F27F5FC7D00C01AD8 /* UIImageView+WeatherIcon.swift in Sources */,
 				6BA340A027F46E0E00F67D66 /* CityWeather.swift in Sources */,
 				6BA340A327F4A6A500F67D66 /* WeatherSearchViewController.swift in Sources */,
 				6BA340A927F4A94800F67D66 /* WeatherCell.swift in Sources */,
+				6B5208A327F6322300C01AD8 /* UIColor+Custom.swift in Sources */,
 				6BA340E827F4CE0A00F67D66 /* AlertPresenter.swift in Sources */,
+				6B52089D27F5FC7D00C01AD8 /* MyLabel.swift in Sources */,
 				6BA3409E27F4644800F67D66 /* WeatherService.swift in Sources */,
 				6BA3406C27F461EB00F67D66 /* AppDelegate.swift in Sources */,
 				6BA340EA27F4CE1B00F67D66 /* NavigationPresenter.swift in Sources */,

@@ -9,12 +9,12 @@ import Foundation
 
 class WeatherSearchViewModel {
     // MARK: - Initialization
-    init(model: [CityWeatherResponse]? = nil) {
+    init(model: CityWeatherResponse? = nil) {
         if let inputModel = model {
             cityWeather = inputModel
         }
     }
-    var cityWeather = [CityWeatherResponse]()
+    var cityWeather: CityWeatherResponse?
     let title = "City Weather"
 }
 
@@ -25,6 +25,7 @@ extension WeatherSearchViewModel {
             switch result {
                 
             case .success(let cityWeather):
+                self.cityWeather = cityWeather
                 completion(.success(cityWeather))
             case .failure(let error):
                 completion(.failure(error))

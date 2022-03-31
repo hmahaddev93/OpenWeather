@@ -22,6 +22,8 @@ final class WeatherSearchView: UIView {
         tableView.separatorStyle = .none
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.showsVerticalScrollIndicator = false
+        tableView.backgroundColor = .clear
+        tableView.register(WeatherHeaderCell.self, forCellReuseIdentifier: "WeatherHeaderCell")
         tableView.register(WeatherCell.self, forCellReuseIdentifier: "WeatherCell")
         return tableView
     }()
@@ -42,7 +44,7 @@ final class WeatherSearchView: UIView {
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        backgroundColor = .white
+        backgroundColor = .owLightGray
         addSubview(stackView)
         addSubview(activityIndicatorView)
         

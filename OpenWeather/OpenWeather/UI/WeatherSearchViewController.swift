@@ -85,18 +85,26 @@ extension WeatherSearchViewController: UISearchBarDelegate {
 
 extension WeatherSearchViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if let weathers = viewModel.cityWeather.weather {
-            return weathers.count()
+        if let weathers = viewModel.cityWeather?.weather {
+            return weathers.count
         }
         return 0
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        if let cell = tableView.dequeueReusableCell(withIdentifier: "SchoolCell", for: indexPath) as? SchoolCell {
-//            let school = viewModel.schools[indexPath.row]
-//            cell.model = school
-//            return cell
-//        }
+        if indexPath.row == 0 {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherHeaderCell", for: indexPath) as? WeatherHeaderCell {
+                cell.model = viewModel.cityWeather
+                return cell
+            }
+        }
+        else {
+            if let cell = tableView.dequeueReusableCell(withIdentifier: "WeatherCell", for: indexPath) as? WeatherCell {
+                cell.model = viewModel.cityWeather?.weather?[indexPath.row]
+                return cell
+            }
+        }
+        
         return UITableViewCell()
     }
 }
@@ -104,8 +112,6 @@ extension WeatherSearchViewController: UITableViewDataSource {
 extension WeatherSearchViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.reloadRows(at: [indexPath], with: .fade)
-//        let school = viewModel.schools[indexPath.row]
-//        self.navPresenter.navigateToSchoolDeail(school: school, from: self, animated: true)
     }
 }
 

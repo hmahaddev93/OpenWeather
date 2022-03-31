@@ -37,10 +37,5 @@ class NavigationPresenter: NavigationPresenter_Proto {
             navController.isNavigationBarHidden = isHidden
         }
     }
-    
-//    func navigateToSchoolDeail(school: School, from: UIViewController, animated: Bool) {
-//        let vc = SchoolDetailViewController(viewModel: SchoolDetailViewModel(model: school))
-//        navigate(from: from, destination: vc, title: nil, animated: true)
-//    }
 }
 

@@ -14,7 +14,7 @@ enum WeatherAPI  {
     enum EndPoints {
         static let weather = "/data/2.5/weather"
     }
-    static let imageUrlFormat = "http://openweathermap.org/img/wn/%@@2x.png"
+    static let imageUrlFormat = "https://openweathermap.org/img/wn/%@@2x.png"
 }
 
 protocol WeatherService_Protocol {
