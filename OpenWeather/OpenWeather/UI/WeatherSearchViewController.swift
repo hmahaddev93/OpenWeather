@@ -64,6 +64,7 @@ extension WeatherSearchViewController: UISearchBarDelegate {
               city.replacingOccurrences(of: " ", with: "") != "" else {
             return
         }
+        searchBar.resignFirstResponder()
         
         showSpinner()
         viewModel.searchWeather(by: city) { [unowned self]result in
